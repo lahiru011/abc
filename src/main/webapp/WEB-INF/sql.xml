@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<queries>
+    <query id="user_table">
+        <![CDATA[
+            CREATE TABLE user (
+                id INT NOT NULL AUTO_INCREMENT,
+                email varchar(255) NOT NULL,
+                password varchar(500) NOT NULL,
+                phone varchar(10),
+                role varchar(40),
+                PRIMARY KEY (id)
+            );
+        ]]>
+    </query>
+    
+     <query id="create_reserve">
+        <![CDATA[
+            CREATE TABLE reserve (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name varchar(255) NOT NULL,
+                phone varchar(500) NOT NULL,
+                email varchar(255),
+                date varchar(100)  
+            );
+        ]]>
+    </query>
+   
+    
+    <query id="service">
+        <![CDATA[
+            CREATE TABLE service (
+                id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+                name varchar(255) NOT NULL,
+                price varchar(255) NOT NULL,
+                description varchar(500) NOT NULL,
+                image TEXT                
+            )
+        ]]>
+    </query>
+    
+    
+      <query id="create_Service">
+        <![CDATA[
+            INSERT INTO  service(name, price, description, image) VALUES(?, ?, ?, ?);
+        ]]>
+    </query>
+    
+    <query id="add_reserve">
+        <![CDATA[
+            INSERT INTO  reserve(name, phone, email, date) VALUES(?, ?, ?, ?)
+        ]]>
+    </query>
+
+    <query id="create_user">
+        <![CDATA[
+            INSERT INTO  user(email, password, phone, role) VALUES(?, ?, ?, ?);
+        ]]>
+    </query>
+    
+    
+    <query id="all_users">
+        <![CDATA[
+           SELECT * FROM user;
+        ]]>
+    </query>
+    
+    <query id="all_reserves">
+        <![CDATA[
+           SELECT * FROM reserve;
+        ]]>
+    </query>
+    
+      <query id="all_services">
+        <![CDATA[
+           SELECT * FROM service;
+        ]]>
+    </query>
+    
+      <query id="get_admin">
+        <![CDATA[
+           SELECT * FROM admin;
+        ]]>
+    </query>
+    
+    <query id="get_feedbacks">
+        <![CDATA[
+           SELECT * FROM feedback;
+        ]]>
+    </query>
+    
+     <query id="get_user_byid">
+        <![CDATA[
+           SELECT * FROM users where id = ?;
+        ]]>
+    </query>
+    
+      <query id="get_admin_byid">
+        <![CDATA[
+           SELECT * FROM admin where id = ?;
+        ]]>
+    </query>
+    
+      <query id="get_service_byid">
+        <![CDATA[
+           SELECT * FROM service where id = ?;
+        ]]>
+    </query>
+    
+    
+     <query id="delete_user">
+        <![CDATA[
+           DELETE from user WHERE id = ?;
+        ]]>
+    </query>
+    
+     <query id="delete_service">
+        <![CDATA[
+           DELETE from service WHERE id = ?;
+        ]]>
+    </query>
+    
+    
+     <query id="delete_reserve">
+        <![CDATA[
+           DELETE from reserve WHERE id = ?;
+        ]]>
+    </query>
+    
+</queries>
